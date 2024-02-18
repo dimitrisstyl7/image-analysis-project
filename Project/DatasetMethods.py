@@ -24,17 +24,24 @@ def get_subset_dataset(dataset):
     """
     Create a subset from the dataset and return it
     :param dataset: the dataset to create the subset from
-    :return: the subset dataset,
-    the indices of the subset based on the original dataset,
-    and the indices of the target images in the subset
+    :return: the subset dataset
     """
     # Create a subset of the dataset
     subset_size = round(len(dataset.imgs) * 0.1)  # Use 10% of the dataset as a subset
     subset_indices = rnd.sample(range(len(dataset.imgs)), subset_size)  # Randomly sample subset_size indices
     subset_dataset = Subset(dataset, subset_indices)
 
+    return subset_dataset
+
+
+def get_target_indices(subset_dataset):
+    """
+    Randomly select 5% of the subset as target images and return their indices
+    :param subset_dataset: the subset dataset
+    :return: the indices of the target images in the subset
+    """
     # Define the target images
     no_of_images = round(len(subset_dataset) * 0.05)  # Use 5% of the subset as target images
     target_indices = rnd.sample(range(len(subset_dataset)), no_of_images)  # Randomly sample no_of_images indices
 
-    return subset_dataset, subset_indices, target_indices
+    return target_indices
