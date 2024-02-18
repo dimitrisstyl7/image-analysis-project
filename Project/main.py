@@ -1,5 +1,6 @@
 from DatasetMethods import *
 from FeatureVectorMethods import *
+from RankingMethods import *
 from SimilarityMeasureMethods import *
 
 if __name__ == '__main__':
@@ -17,3 +18,6 @@ if __name__ == '__main__':
 
     # Calculate the similarity measures between the target images and all other images
     similarity_measures = calculate_similarity_measures(target_feature_vectors, feature_vectors)
+
+    # Rank the images based on the similarity measures
+    T = get_ranked_list(similarity_measures)
