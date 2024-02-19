@@ -19,3 +19,13 @@ def calculate_similarity_measures(feature_vectors):
             similarity_measures[i].append((j, similarity_measure))
 
     return similarity_measures
+
+
+def normalize_similarity_measures(similarity_measures):
+    L = len(similarity_measures[0])  # Number of images
+
+    for i in range(L):
+        for j in range(L):
+            r_i_j = similarity_measures[i][j][1]
+            r_j_i = similarity_measures[j][i][1]
+            similarity_measures[i][j] = (similarity_measures[i][j][0], 2 * L - (r_i_j + r_j_i))
