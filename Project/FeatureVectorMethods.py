@@ -5,12 +5,11 @@ import torchvision.models as models
 from torch.utils.data import DataLoader
 
 
-def extract_feature_vectors(subset_dataset, target_indices):
+def extract_feature_vectors(subset_dataset):
     """
     Extract the feature vectors for all images in the subset dataset using the pre-trained ResNet-50 model
     :param subset_dataset: the subset dataset
-    :param target_indices: the indices of the target images in the subset dataset,
-    :return: the feature vectors for all images in the subset dataset and the target feature vectors
+    :return: the feature vectors for all images in the subset dataset
     """
     # Load the pre-trained model
     model = get_pretrained_model()
@@ -38,10 +37,7 @@ def extract_feature_vectors(subset_dataset, target_indices):
     # Concatenate the feature vectors into a single tensor
     feature_vectors = torch.cat(feature_vectors, dim=0)
 
-    # Extract the feature vectors of the target images
-    target_feature_vectors = feature_vectors[target_indices]
-
-    return feature_vectors, target_feature_vectors
+    return feature_vectors
 
 
 def get_pretrained_model():
