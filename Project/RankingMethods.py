@@ -1,7 +1,7 @@
 def get_ranked_list(similarity_measures):
     """
-    This function ranks the images based on the similarity measures between the target images and all other images
-    :param similarity_measures: Similarity measures between the target images and all other images
+    This function ranks the images based on the similarity measures list
+    :param similarity_measures: Similarity measures list
     :return: A list of ranked images, format (same as similarity_measures): [[(image_index, similarity_measure), ...], ...]
     """
     T = []

@@ -14,10 +14,13 @@ if __name__ == '__main__':
     target_indices = get_target_indices(subset_dataset)
 
     # Extract the feature vectors for all images in the subset dataset
-    feature_vectors, target_feature_vectors = extract_feature_vectors(subset_dataset, target_indices)
+    feature_vectors = extract_feature_vectors(subset_dataset)
 
-    # Calculate the similarity measures between the target images and all other images
-    similarity_measures = calculate_similarity_measures(target_feature_vectors, feature_vectors)
+    # Calculate the similarity measures for all images
+    similarity_measures = calculate_similarity_measures(feature_vectors)
+
+    # Normalize the similarity measures
+    normalize_similarity_measures(similarity_measures)
 
     # Rank the images based on the similarity measures
     T = get_ranked_list(similarity_measures)
