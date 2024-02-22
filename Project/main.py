@@ -1,6 +1,6 @@
 from DatasetMethods import *
 from FeatureVectorMethods import *
-from RankingMethods import *
+from NeighbourhoodSetMethods import *
 from SimilarityMeasureMethods import *
 
 if __name__ == '__main__':
@@ -22,5 +22,6 @@ if __name__ == '__main__':
     # Normalize the similarity measures
     normalized_similarity_measures = normalize_similarity_measures(similarity_measures)
 
-    # Rank the images based on the similarity measures
-    T = get_ranked_list(similarity_measures)
+    # Create the neighbourhood set matrix N (inside this method, we rank the images based on the similarity measures)
+    k = len(target_indices)  # k most similar images
+    N = create_neighbourhood_set_matrix(normalized_similarity_measures, target_indices, k)
