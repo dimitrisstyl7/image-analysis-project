@@ -1,8 +1,8 @@
-from DatasetMethods import *
-from FeatureVectorMethods import *
-from IncidenceMatrixMethods import *
-from NeighbourhoodSetMethods import *
-from SimilarityMeasureMethods import *
+from Dataset import *
+from FeatureVector import *
+from IncidenceMatrix import *
+from NeighbourhoodSet import *
+from SimilarityMeasure import *
 
 if __name__ == '__main__':
     # Load the dataset
