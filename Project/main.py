@@ -1,5 +1,6 @@
 from DatasetMethods import *
 from FeatureVectorMethods import *
+from IncidenceMatrixMethods import *
 from NeighbourhoodSetMethods import *
 from SimilarityMeasureMethods import *
 
@@ -25,3 +26,6 @@ if __name__ == '__main__':
     # Create the neighbourhood set matrix N (inside this method, we rank the images based on the similarity measures)
     k = len(target_indices)  # k most similar images
     N = create_neighbourhood_set_matrix(normalized_similarity_measures, target_indices, k)
+
+    # Calculate continuous incidence matrix H
+    H = calculate_continuous_incidence_matrix(N, k, target_indices)
