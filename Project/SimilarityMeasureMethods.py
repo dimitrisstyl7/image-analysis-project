@@ -22,10 +22,17 @@ def calculate_similarity_measures(feature_vectors):
 
 
 def normalize_similarity_measures(similarity_measures):
+    """
+    Normalize the similarity measures
+    :param similarity_measures: the pairwise similarity measures ρ(o_i, o_j), format: [ [(j, similarity_measure), ...], ...],
+    :return: the normalized similarity measures
+    """
     L = len(similarity_measures[0])  # Number of images
-
+    normalized_similarity_measures = [[] for _ in range(L)]
     for i in range(L):
         for j in range(L):
             r_i_j = similarity_measures[i][j][1]
             r_j_i = similarity_measures[j][i][1]
-            similarity_measures[i][j] = (similarity_measures[i][j][0], 2 * L - (r_i_j + r_j_i))
+            normalized_value = 2 * L - (r_i_j + r_j_i)
+            normalized_similarity_measures[i].append((similarity_measures[i][j][0], normalized_value))
+    return normalized_similarity_measures

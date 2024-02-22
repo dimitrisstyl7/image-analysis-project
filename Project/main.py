@@ -20,7 +20,7 @@ if __name__ == '__main__':
     similarity_measures = calculate_similarity_measures(feature_vectors)
 
     # Normalize the similarity measures
-    normalize_similarity_measures(similarity_measures)
+    normalized_similarity_measures = normalize_similarity_measures(similarity_measures)
 
     # Rank the images based on the similarity measures
     T = get_ranked_list(similarity_measures)
