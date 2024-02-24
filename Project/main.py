@@ -3,6 +3,7 @@ from FeatureVector import *
 from IncidenceMatrix import *
 from NeighbourhoodSet import *
 from SimilarityMeasure import *
+from PairwiseSimilarityMatrix import *
 
 if __name__ == '__main__':
     # Load the dataset
@@ -29,3 +30,6 @@ if __name__ == '__main__':
 
     # Calculate continuous incidence matrix H
     H = calculate_continuous_incidence_matrix(N, k, target_indices)
+
+    # Calculate the pairwise similarity matrix S
+    S = calculate_pairwise_similarity_matrix(H)
