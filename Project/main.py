@@ -1,9 +1,10 @@
+from CartesianProduct import *
 from Dataset import *
 from FeatureVector import *
 from IncidenceMatrix import *
 from NeighbourhoodSet import *
-from SimilarityMeasure import *
 from PairwiseSimilarityMatrix import *
+from SimilarityMeasure import *
 
 if __name__ == '__main__':
     # Load the dataset
@@ -33,3 +34,6 @@ if __name__ == '__main__':
 
     # Calculate the pairwise similarity matrix S
     S = calculate_pairwise_similarity_matrix(H)
+
+    # Calculate the Cartesian product C
+    C = calculate_cartesian_product(H)
