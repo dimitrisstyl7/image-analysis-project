@@ -6,7 +6,7 @@ import numpy as np
 def calculate_continuous_incidence_matrix(N, k):
     """
     Calculate the continuous incidence matrix H
-    :param N: the neighbourhood set matrix N
+    :param N: the neighborhood set matrix N
     :param k: the number of most similar images
     :return: the continuous incidence matrix H
     """
