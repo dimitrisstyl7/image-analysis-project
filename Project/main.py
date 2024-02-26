@@ -73,6 +73,13 @@ def show_images(target_image, dataset):
 
 
 def get_target_images(T, target_indices, k):
+    """
+    Get the target images from the ranked list
+    :param T: A list of ranked images, format: [[(image_index, weight), ...], ...]
+    :param target_indices: The indices of the target images in the subset
+    :param k: The number of similar images considered in the neighborhood set
+    :return: The target images with the k most similar images
+    """
     return [T[idx][:k] for idx in target_indices]
 
 
