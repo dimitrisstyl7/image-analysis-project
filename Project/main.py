@@ -58,17 +58,62 @@ def LHRR(T, iterations):
     return T, k
 
 
-def show_images(target_image, dataset):
+def assign_weights_with_relevance(no_of_images, relevance_scores):
+    """
+    Assign weights to the images based on their index and relevance scores
+    :param no_of_images: Number of images
+    :param relevance_scores: List of relevance scores
+    :return: List of weights
+    """
+    return [relevance_scores[i] * (no_of_images - i) for i in range(no_of_images)]
+
+
+def show_images(target_image, subset_dataset, categories):
     _, axs = plt.subplots(1, len(target_image), figsize=(14, 4))
     plt.gcf().canvas.manager.set_window_title(f"Target image {target_image[0][0]}")
 
+    # Target image category
+    target_category_idx = subset_dataset.dataset.samples[subset_dataset.indices[target_image[0][0]]][1]
+
+    # Initialize the relevance scores
+    relevance_scores = []
+
+    # Iterate through the target images
     for ax, (img_idx, score) in zip(axs, target_image):
         # Retrieve the resized image from the dataset
-        image, _ = dataset[img_idx]
+        image, _ = subset_dataset.dataset[subset_dataset.indices[img_idx]]
+
         # Convert the image tensor to numpy array and transpose it
         image = np.transpose(image.numpy(), (1, 2, 0))
+
+        # Plot the image
         ax.imshow(image)
+
+        # Set the title of the image
+        category_idx = subset_dataset.dataset.samples[subset_dataset.indices[img_idx]][1]
+        category = categories[category_idx]
+        title = f'Category: {category}'
+        if img_idx == target_image[0][0]:
+            title += ' (target image)'
+        ax.set_title(title)
+
+        # Remove the axis
         ax.axis('off')
+
+        # Calculate the relevance score
+        score = 1 if category_idx == target_category_idx else 0
+        relevance_scores.append(score)
+
+    # Assign weights to the images based on their index and relevance scores
+    weights = assign_weights_with_relevance(len(target_image), relevance_scores)
+
+    # Get the accuracy of the algorithm based on the weights
+    accuracy = sum(weights) / sum(range(1, len(target_image) + 1))
+
+    # Show the accuracy on the plot
+    plt.suptitle(f'Accuracy: {accuracy:.2f}')
+
+    # Show the images
     plt.show()
 
 
@@ -114,6 +159,9 @@ if __name__ == '__main__':
     # Get the target images from the ranked list
     target_images = get_target_images(T, target_indices, k)
 
+    # Get all categories names from the dataset
+    categories = subset_dataset.dataset.classes
+
     # Show the target images and the k most similar images
     for target_image in target_images:
-        show_images(target_image, dataset)
+        show_images(target_image, subset_dataset, categories)
