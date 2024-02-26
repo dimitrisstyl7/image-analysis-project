@@ -80,7 +80,7 @@ def show_images(target_image, subset_dataset, categories):
 
     # Iterate through the target images
     for ax, (img_idx, score) in zip(axs, target_image):
-        # Retrieve the resized image from the dataset
+        # Retrieve the image from the dataset
         image, _ = subset_dataset.dataset[subset_dataset.indices[img_idx]]
 
         # Convert the image tensor to numpy array and transpose it
