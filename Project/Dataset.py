@@ -41,5 +41,6 @@ def get_target_indices(subset_dataset):
     # Define the target images
     no_of_images = 5  # Use 5 images as target images
     subset_indices = list(range(len(subset_dataset)))
-    target_indices = [subset_indices.pop(rnd.randint(0, len(subset_indices) - 1)) for _ in range(no_of_images)] # Randomly sample no_of_images indices
+    target_indices = [subset_indices.pop(rnd.randint(0, len(subset_indices) - 1)) for _ in
+                      range(no_of_images)]  # Randomly sample no_of_images indices
     return target_indices
