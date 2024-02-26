@@ -13,8 +13,7 @@ def load_dataset():
     # Define image transformations
     transform = transforms.Compose([
         transforms.Resize((224, 224)),  # Resize images to 224x224 pixels
-        transforms.ToTensor(),  # Convert images to PyTorch tensors
-        transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),  # Normalize pixel values
+        transforms.ToTensor()  # Convert images to PyTorch tensors
     ])
 
     return ImageFolder(root='images', transform=transform)
@@ -27,21 +26,21 @@ def get_subset_dataset(dataset):
     :return: the subset dataset
     """
     # Create a subset of the dataset
-    subset_size = round(len(dataset.imgs) * 0.1)  # Use 10% of the dataset as a subset
+    subset_size = 150  # Use 150 images as a subset
     subset_indices = rnd.sample(range(len(dataset.imgs)), subset_size)  # Randomly sample subset_size indices
     subset_dataset = Subset(dataset, subset_indices)
-
     return subset_dataset
 
 
 def get_target_indices(subset_dataset):
     """
-    Randomly select 5% of the subset as target images and return their indices
+    Randomly select 5 images from the subset as target images and return their indices
     :param subset_dataset: the subset dataset
     :return: the indices of the target images in the subset
     """
     # Define the target images
-    no_of_images = round(len(subset_dataset) * 0.05)  # Use 5% of the subset as target images
-    target_indices = rnd.sample(range(len(subset_dataset)), no_of_images)  # Randomly sample no_of_images indices
-
+    no_of_images = 5  # Use 5 images as target images
+    subset_indices = list(range(len(subset_dataset)))
+    target_indices = [subset_indices.pop(rnd.randint(0, len(subset_indices) - 1)) for _ in
+                      range(no_of_images)]  # Randomly sample no_of_images indices
     return target_indices
