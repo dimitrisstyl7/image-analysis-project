@@ -19,41 +19,41 @@ def LHRR(T, iterations):
     similar images considered in the neighborhood set
     """
     for iteration in range(iterations):
-        print("\nStarting iteration " + str(iteration + 1) + "/" + str(iterations) + "...")
+        print("\nStarting iteration " + str(iteration + 1) + "/" + str(iterations) + ":")
 
         # Rank normalization
-        print("Normalizing the ranked list T...")
+        print("\tNormalizing the ranked list T...")
         T = normalize_ranked_list(T)
 
         # Create the neighborhood set matrix N
-        print("Creating the neighborhood set matrix N...")
+        print("\tCreating the neighborhood set matrix N...")
         k = 5  # k most similar images to consider in the neighborhood set
         N = create_neighborhood_set_matrix(T, k)
 
         # Calculate continuous incidence matrix H
-        print("Calculating the continuous incidence matrix H...")
+        print("\tCalculating the continuous incidence matrix H...")
         H = calculate_continuous_incidence_matrix(N, k)
 
         # Calculate the pairwise similarity matrix S
-        print("Calculating the pairwise similarity matrix S...")
+        print("\tCalculating the pairwise similarity matrix S...")
         S = calculate_pairwise_similarity_matrix(H)
 
         # Calculate the Cartesian product C
-        print("Calculating the Cartesian product C...")
+        print("\tCalculating the Cartesian product C...")
         C = calculate_cartesian_product(H)
 
         # Calculate the affinity matrix W
-        print("Calculating the affinity matrix W...")
+        print("\tCalculating the affinity matrix W...")
         W = C * S
 
         # Update the ranked list T with the new weights
-        print("Updating the ranked list T with the new weights...")
+        print("\tUpdating the ranked list T with the new weights...")
         for i in range(len(W)):
             for j in range(len(W[i])):
                 T[i][j] = (T[i][j][0], W[i][j])
 
         # Sort the ranked list T
-        print("Sorting the ranked list T...")
+        print("\tSorting the ranked list T...")
         T = [sorted(t, key=lambda x: x[1], reverse=True) for t in T]
     return T, k
 
