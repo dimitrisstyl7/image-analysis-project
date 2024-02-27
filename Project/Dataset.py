@@ -26,7 +26,7 @@ def get_subset_dataset(dataset):
     :return: the subset dataset
     """
     # Create a subset of the dataset
-    subset_size = 150  # Use 150 images as a subset
+    subset_size = 300  # Use 300 images as a subset
     subset_indices = rnd.sample(range(len(dataset.imgs)), subset_size)  # Randomly sample subset_size indices
     subset_dataset = Subset(dataset, subset_indices)
     return subset_dataset
