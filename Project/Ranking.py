@@ -15,7 +15,7 @@ def normalize_ranked_list(T):
     """
     This function normalizes the ranked list T by using the formula: normalized_value = 2 * L - (r_i_j + r_j_i)
     :param T: A list of ranked images, format: [[(image_index, weight), ...], ...]
-    :return: A list of normalized ranked images, format: [[(image_index, normalized_value), ...], ...]
+    :return: A list of normalized ranked images, format: [[(image_index, normalized_weight), ...], ...]
     """
     L = len(T)  # Number of images
     normalized_T = [[] for _ in range(L)]
