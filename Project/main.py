@@ -69,6 +69,12 @@ def assign_weights_with_relevance(no_of_images, relevance_scores):
 
 
 def show_images(target_image, subset_dataset, categories):
+    """
+    Show a specific target image with the k most similar images and the accuracy of the algorithm
+    :param target_image: The target image with the k most similar images
+    :param subset_dataset: The subset dataset
+    :param categories: The categories names
+    """
     _, axs = plt.subplots(1, len(target_image), figsize=(14, 4))
     plt.gcf().canvas.manager.set_window_title(f"Target image {target_image[0][0]}")
 
