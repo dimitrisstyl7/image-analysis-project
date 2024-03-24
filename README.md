@@ -1,5 +1,5 @@
 # image-analysis-project-2023-2024
-## [University of Piraeus](https://www.unipi.gr/unipi/en/)<br>[Department of Informatics](https://www.cs.unipi.gr/index.php?lang=en)
+## [University of Piraeus](https://www.unipi.gr/en/home/)<br>[Department of Informatics](https://cs.unipi.gr/en/)
 ### Course: Image Analysis
 ### Semester: 7
 ### Project Completion Year: 2024
