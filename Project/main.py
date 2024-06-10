@@ -1,13 +1,13 @@
 import matplotlib.pyplot as plt
 
-from CartesianProduct import *
-from Dataset import *
-from FeatureVector import *
-from IncidenceMatrix import *
-from NeighborhoodSet import *
-from PairwiseSimilarityMatrix import *
-from Ranking import *
-from SimilarityMeasure import *
+from cartesian_product import *
+from dataset import *
+from feature_vector import *
+from incidence_matrix import *
+from neighborhood_set import *
+from pairwise_similarity_matrix import *
+from ranking import *
+from similarity_measure import *
 
 
 def LHRR(T, iterations):
