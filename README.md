@@ -1,7 +1,7 @@
 # Content-Based Image Retrieval System
 
 ## [University of Piraeus](https://www.unipi.gr/en/home/) | [Department of Informatics](https://cs.unipi.gr/en/)
-**Course**: Image Analysis
+**BSc course**: Image Analysis
 
 **Semester**: 7
 
@@ -24,11 +24,11 @@ This project implements a Content-Based Image Retrieval (CBIR) system using hype
 ## How to Run
 1. **Clone the repository**:
 ```bash
-git clone https://github.com/dimitrisstyl7/image-analysis-project-2023-2024.git
+git clone https://github.com/dimitrisstyl7/image-analysis-project.git
 ```
 2. **Navigate to the project directory**:
 ```bash
-cd image-analysis-project-2023-2024/Project
+cd image-analysis-project/Project
 ```
 3. **Create and activate a virtual environment**:
 
@@ -69,7 +69,7 @@ python main.py
 </table>
 
 ## Acknowledgments
-This project was developed as part of the "Image Analysis" course at the University of Piraeus. Contributions and feedback are always welcome!
+This project was developed as part of the "Image Analysis" BSc course at the University of Piraeus. Contributions and feedback are always welcome!
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
