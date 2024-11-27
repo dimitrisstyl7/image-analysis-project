@@ -8,7 +8,7 @@
 **Project Completion Year**: 2024
 
 ## Description
-This project implements a Content-Based Image Retrieval (CBIR) system using hypergraph-based algorithms. The system aims to retrieve images from a database based on their visual content rather than metadata. By leveraging advanced techniques such as hypergraph construction and similarity calculations, the project enhances the accuracy and efficiency of image retrieval processes.
+This project implements a Content-Based Image Retrieval (CBIR) system using hypergraph-based algorithm. The system aims to retrieve images from a database based on their visual content rather than metadata. By leveraging advanced techniques such as hypergraph construction and similarity calculations, the project enhances the accuracy and efficiency of image retrieval processes.
 
 ## Features
 - **Content-Based Image Retrieval**: Retrieval of images based on their content using graph-theoretic algorithms.
